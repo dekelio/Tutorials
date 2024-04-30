@@ -1,0 +1,82 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+    
+<crowd-classifier 
+      name="action_category"
+      categories="['Jump', 'Swap', 'Slide', 'Contain', 'Huddle', 'Rotate']"
+      header="Which action best describes the action in the video? ** Please read the full instructions before answering.**"
+>
+    <classification-target>
+        <img width="95%" height="300" src="${link}" id="${fn}"></img>
+        </classification-target>    
+      
+      <short-instructions>
+        <p>
+        <ol>
+            <li> 
+                <b>Jump </b> - <b>one</b> object is <b>jumping</b> from one place to another.
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/pickplace.gif"></img></li>
+            <li> 
+                <b>Swap</b> - <b>two</b> objects swap places.
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/swap.gif"></img></li>
+            <li> 
+                <b> Slide </b> - <b>one</b> object is sliding on the floor from one place to another.
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/slide.gif"></img></li>
+            <li> 
+                <b> Contain </b> - <b>one</b> object moves towards a different object and contains it. 
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/contain.gif"></img></li>
+            <li> 
+                <b> Huddle </b> - <b>all</b> objects move to one spot.
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/huddle.gif"></img></li>
+            <li><b>Rotate </b> - <b>one</b> object remains in its spot rotating. Here, the purple cylinder is rotating (ignore the movement of the red cone). 
+                <br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/rotate.gif"></img></li>
+        </ol>
+        </p>
+      </short-instructions>
+ 
+      <full-instructions header="Action classification instructions.">
+        <p>  In this experiment, you will be presented with a series of videos. Each video will belong to one of <b>six</b> types: Jump, Swap, Slide, Contain, Huddle, Rotate. Here are example of these types. </p>
+        
+            <ol>
+                <li><b> Jump </b> - an object changes place by jumping.
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/pickplace.gif"></img></li>
+                <li><b>Swap</b> - <b>two</b> different objects swap places.
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/swap.gif"></img></li>
+                <li><b>Slide</b> to place - an object changes place by sliding on the floor.
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/slide.gif"></img></li>
+                <li><b>Contain</b> - <b>one</b> object moves towards a different object and contains it. 
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/contain.gif"></img></li>
+                <li><b>Huddle</b> - <b>all</b> objects in the scene move to the same spot. 
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/huddle.gif"></img></li>
+                <li><b>Rotate in place </b> - an object remains in its spot, rotating. Here, the purple cylinder is rotating (ignore the movement of the red cone). 
+                <br><br><img width="200" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/rotate.gif"></img></li>
+            </ol>
+        
+        <!--<table border="1" style="border-collapse: collapse; table-layout:fixed; width:700px; padding: 10px">-->
+        <!--    <tr>-->
+        <!--        <td><b> 1. Jump </b> - an object changes place by jumping.-->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/pickplace.gif"></img></td>-->
+        <!--        <td style="word-wrap:break-word">-->
+        <!--            <b>2. Swap</b> - <b>two</b> different objects swap places.-->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/swap.gif"></img></td>-->
+        <!--        <td><b>3. Slide</b> to place - an object changes place by sliding on the floor.-->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/slide.gif"></img></td>-->
+        <!--    </tr>-->
+        <!--    <tr>-->
+        <!--        <td><b>4. Contain</b> - <b>one</b> object moves towards a different object and contains it. -->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/contain.gif"></img></td>-->
+        <!--        <td><b>5. Huddle</b> - <b>all</b> objects in the scene move to the same spot. -->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/huddle.gif"></img></td>-->
+        <!--        <td><b>6. Rotate in place </b> - an object remains in its spot, rotating. Here, the purple cylinder is rotating (ignore the movement of the red cone). -->
+        <!--        <br><br><img width="80%" height="150" src="https://human-eval.s3-us-west-2.amazonaws.com/neurips20/table3/onboarding/rotate.gif"></img></td>                -->
+        <!--    </tr>-->
+        <!--    </table>-->
+      </full-instructions>
+
+</crowd-form>
